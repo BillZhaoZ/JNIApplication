@@ -25,21 +25,40 @@ public class MainActivity extends AppCompatActivity {
         // 调用C方法
         String s = JniTest.javaCallC("大力牛魔王！");
         final String helloFromC = JniTest.helloFromC();
-
         view.setText(s);
 
+        // 吐司
+        Toast(btn, helloFromC);
+
+        TextView textView = (TextView) findViewById(R.id.ndk_text);
+        String str = JniTest.getStringFormC();
+
+        // 加密部分
+        encrypt(textView, str);
+    }
+
+    /**
+     * 吐司
+     *
+     * @param btn
+     * @param helloFromC
+     */
+    private void Toast(Button btn, final String helloFromC) {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), helloFromC, Toast.LENGTH_SHORT).show();
             }
         });
+    }
 
-        // 吐司
-        TextView textView = (TextView) findViewById(R.id.ndk_text);
-        String str = JniTest.getStringFormC();
-
-        // 加密部分
+    /**
+     * 加密
+     *
+     * @param textView
+     * @param str
+     */
+    private void encrypt(TextView textView, String str) {
         String ming = "13550110110";
         String encrypmi = JniTest.encode(ming);
         String decrypmi = JniTest.decode(encrypmi);
