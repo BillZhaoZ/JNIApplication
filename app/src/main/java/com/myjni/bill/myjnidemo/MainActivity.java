@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // 设置标题
         setTitle("JNI开发实例");
 
         TextView view = (TextView) findViewById(R.id.tv_jni);
