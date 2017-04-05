@@ -4,6 +4,7 @@ JNI开发的简单案例（文字设置、吐司调用、加密解密显示）
 
 AS下，NDK的集成；
 
+
 一. JNI介绍
 
 1. JNI引入
@@ -12,7 +13,7 @@ AS下，NDK的集成；
 
 为什么需要JNI呢?
 
-　　Java是一种平台无关的语言，通过不同操作系统下具有相同功能的JVM实现一次编译，可以到处运行。也正是因为JVM，使得Java程序运行的效率相对于C/C++等本地语言较低，而且不能像C/C++一样直接操作底层硬件。因为C/C++本地语言编译程序是直接被操作系统运行，而不需要类似Java的虚拟机。
+   Java是一种平台无关的语言，通过不同操作系统下具有相同功能的JVM实现一次编译，可以到处运行。也正是因为JVM，使得Java程序运行的效率相对于C/C++等本地语言较低，而且不能像C/C++一样直接操作底层硬件。因为C/C++本地语言编译程序是直接被操作系统运行，而不需要类似Java的虚拟机。
 
 　　所以如果Android app需要操作底层硬件，或要求应用的运行效率，安全性，就可以使用JNI来实现java和本地C/C++语言之间的相互调用。
 
@@ -69,8 +70,6 @@ JNI中的一些概念 :
             (JNIEnv *, jobject);
 
 
-
-
     /*
      * Class:     com_myjni_bill_myjnidemo_JniTest
      * Method:    getStringFormC
@@ -113,10 +112,6 @@ JNI中的一些概念 :
      include $(BUILD_SHARED_LIBRARY)
 
 五、.c文件的编写
-
-     //
-     // Created by Bill on 2017/3/15.
-     //
 
      #include <stdio.h>
      #include <string.h>
@@ -255,23 +250,6 @@ JNI中的一些概念 :
 
 七、JNITest编写
 
-    package com.myjni.bill.myjnidemo;
-
-    import java.security.InvalidAlgorithmParameterException;
-    import java.security.InvalidKeyException;
-    import java.security.NoSuchAlgorithmException;
-    import java.security.NoSuchProviderException;
-    import java.security.SecureRandom;
-    import java.security.spec.AlgorithmParameterSpec;
-
-    import javax.crypto.BadPaddingException;
-    import javax.crypto.Cipher;
-    import javax.crypto.IllegalBlockSizeException;
-    import javax.crypto.KeyGenerator;
-    import javax.crypto.NoSuchPaddingException;
-    import javax.crypto.SecretKey;
-    import javax.crypto.spec.IvParameterSpec;
-
     /**
      * 加载类库和C代码
      * Created by Bill on 2017/3/15.
@@ -394,15 +372,6 @@ JNI中的一些概念 :
 
 
 八、MainActivity编写
-
-     package com.myjni.bill.myjnidemo;
-
-     import android.os.Bundle;
-     import android.support.v7.app.AppCompatActivity;
-     import android.view.View;
-     import android.widget.Button;
-     import android.widget.TextView;
-     import android.widget.Toast;
 
      /**
       * 主界面
